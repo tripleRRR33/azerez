@@ -8,29 +8,44 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Erreur de chargement des questions :', error));
 });
 
+let currentQuestionIndex = 0;
+
 function initializeQuiz(questions) {
     const quizContainer = document.getElementById('quiz');
-    questions.forEach((question, index) => {
-        const questionElement = document.createElement('div');
-        questionElement.classList.add('question');
-        if (index === 0) questionElement.classList.add('active'); // Activer la première question
-        questionElement.setAttribute('data-answer', question.answer);
-        questionElement.setAttribute('data-category', question.category);
+    const questionElement = document.createElement('div');
+    questionElement.classList.add('question');
+    questionElement.setAttribute('data-answer', questions[currentQuestionIndex].answer);
+    questionElement.setAttribute('data-category', questions[currentQuestionIndex].category);
 
-        questionElement.innerHTML = `
-            <div class="category-indicator">${question.category.toUpperCase()}</div>
-            <h3>Question ${index + 1}:</h3>
-            <p>${question.question}</p>
-            <div class="options">
-                ${question.options.map(option => `<div class="option">${option}</div>`).join('')}
-            </div>
-            <div class="feedback"></div>
-        `;
-        quizContainer.appendChild(questionElement);
-    });
+    questionElement.innerHTML = `
+        <div class="category-indicator">${questions[currentQuestionIndex].category.toUpperCase()}</div>
+        <h3>Question ${currentQuestionIndex + 1}:</h3>
+        <p>${questions[currentQuestionIndex].question}</p>
+        <div class="options">
+            ${questions[currentQuestionIndex].options.map(option => `<div class="option">${option}</div>`).join('')}
+        </div>
+        <div class="feedback"></div>
+        <button id="prevBtn" onclick="showPrevQuestion()">Précédent</button>
+        <button id="nextBtn" onclick="showNextQuestion()">Suivant</button>
+    `;
+    quizContainer.appendChild(questionElement);
 
     // Ajouter les événements pour chaque option
     setupOptionListeners();
+}
+
+function showNextQuestion() {
+    const quizContainer = document.getElementById('quiz');
+    quizContainer.innerHTML = ''; // Nettoyer le contenu actuel
+    currentQuestionIndex = (currentQuestionIndex + 1) % questions.length; // Passer à la question suivante
+    initializeQuiz(questions);
+}
+
+function showPrevQuestion() {
+    const quizContainer = document.getElementById('quiz');
+    quizContainer.innerHTML = ''; // Nettoyer le contenu actuel
+    currentQuestionIndex = (currentQuestionIndex - 1 + questions.length) % questions.length; // Retourner à la question précédente
+    initializeQuiz(questions);
 }
 
 function setupOptionListeners() {

@@ -1,0 +1,64 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "category": "Cinéma",
+      "question": "Quel est le film le plus rentable de tous les temps, ajusté pour l'inflation ?",
+      "options": [
+        "Avatar",
+        "Titanic",
+        "Autant en emporte le vent",
+        "Star Wars"
+      ],
+      "answer": "Autant en emporte le vent"
+    },
+    {
+      "id": 2,
+      "category": "Musique",
+      "question": "Quel artiste détient le record de ventes d'albums dans le monde ?",
+      "options": [
+        "Elvis Presley",
+        "The Beatles",
+        "Michael Jackson",
+        "Madonna"
+      ],
+      "answer": "The Beatles"
+    },
+    {
+      "id": 3,
+      "category": "Littérature",
+      "question": "Qui a écrit '1984' ?",
+      "options": [
+        "George Orwell",
+        "Aldous Huxley",
+        "Ray Bradbury",
+        "Jules Verne"
+      ],
+      "answer": "George Orwell"
+    },
+    {
+      "id": 4,
+      "category": "Sciences",
+      "question": "Quelle est la planète la plus grande du système solaire ?",
+      "options": [
+        "Saturne",
+        "Jupiter",
+        "Neptune",
+        "Uranus"
+      ],
+      "answer": "Jupiter"
+    },
+    {
+      "id": 5,
+      "category": "Histoire",
+      "question": "Quel événement a marqué la fin du Moyen Âge ?",
+      "options": [
+        "La découverte de l'Amérique",
+        "La prise de Constantinople",
+        "La Réforme protestante",
+        "La chute de l'Empire romain d'Occident"
+      ],
+      "answer": "La prise de Constantinople"
+    }
+  ]
+}

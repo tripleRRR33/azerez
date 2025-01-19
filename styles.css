@@ -58,4 +58,24 @@ body {
 }
 
 /* ...suite des styles, copier directement depuis votre code initial... */
+/* Boutons de validation */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    background-color: #4a148c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
+.button:hover {
+    background-color: #6a1b9a;
+}
+
+.button:active {
+    background-color: #38006b;
+}
